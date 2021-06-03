@@ -30,9 +30,9 @@ async def BotzHub():
     async with user_bot:
         while True:
             print("[INFO] starting to check uptime..")
-            await user_bot.edit_message(int(chnl_id), msg_id, "**@BotzHub Bots Stats.**\n\n`Performing a periodic check...`")
+            await user_bot.edit_message(int(chnl_id), msg_id, "**@My_Test_Botz Bots Stats.**\n\n`Performing a periodic check...`")
             c = 0
-            edit_text = "**@My_Test_Botz Bots Stats.\n ✅= Up\n ❌= Down**\n\n"
+            edit_text = "**List of all bots from @My_Test_Botz  and its online status:\n ✅= Up\n ❌= Down**\n\n"
             for bot in bots:
                 print(f"[INFO] checking @{bot}")
                 snt = await user_bot.send_message(bot, "/start")
@@ -51,9 +51,9 @@ async def BotzHub():
                 msg = history.messages[0].id
                 if snt.id == msg:
                     print(f"@{bot} is down.")
-                    edit_text += f"**@{bot} - Status :  ❌**\n"
+                    edit_text += f"**🤖 @{bot} \n📊 Status :  ❌**\n\n"
                 elif snt.id + 1 == msg:
-                    edit_text += f"**@{bot} - Status :  ✅**\n"
+                    edit_text += f"**🤖 @{bot} \n📊 Status :  ✅**\n\n"
                 await user_bot.send_read_acknowledge(bot)
                 c += 1
                 await user_bot.edit_message(int(chnl_id), msg_id, edit_text)
